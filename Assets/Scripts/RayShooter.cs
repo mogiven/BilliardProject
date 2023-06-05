@@ -44,6 +44,10 @@ public class RayShooter: MonoBehaviour
 
 
                 if(global.is_hold==1){
+                    //更新出杆数
+                    global.stick_attacks+=1;
+                    global.poolRules.UpdateStickNote(global.stick_attacks);
+                    
                     StartCoroutine(MoveStick(ray));//运行此协程
                 }
 
@@ -69,7 +73,9 @@ public class RayShooter: MonoBehaviour
     private IEnumerator MoveStick(Ray ray)//运行协程来响应击中
     {
         global.is_hold=0;
-        Debug.Log("协程运行开始");
+        //Debug.Log("协程运行开始");
+
+
 
         stick.parent.position=ray.origin;
         //stick.rotation=Quaternion.LookRotation(ray.direction);
@@ -86,7 +92,7 @@ public class RayShooter: MonoBehaviour
         //stick.position=stick.parent.position;
 
         global.is_hold=1;
-        Debug.Log("协程运行结束");
+        //Debug.Log("协程运行结束");
     }
 
     // 添加可视化指示器

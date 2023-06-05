@@ -21,9 +21,9 @@ public class Forbidden_rigion : MonoBehaviour
             Debug.Log("这个球掉在地上了"+col.gameObject.name+ "是"+n+"号球");
 
             //Destroy(this.gameObject, 0.5F);
-            if(global.hole_balls==6){
-                Debug.Log("你赢了");
-            }
+            // if(global.hole_balls==6){
+            //     Debug.Log("你赢了");
+            // }
         }
     }
 

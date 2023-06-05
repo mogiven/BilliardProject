@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class HoleDetect : MonoBehaviour
 {
@@ -21,14 +22,24 @@ public class HoleDetect : MonoBehaviour
             string[] parts = name.Split('_'); //按照下划线分割名称 
             string n = parts[1]; //取出第二个元素，即n的值
 
+            if(n=="W"){
+                n="0";
+            }
+
             Debug.Log("这个球进洞了"+col.gameObject.name+ "是"+n+"号球");
+
+
+            // if (global.poolRules==null){
+            //     global.poolRules=new PoolRules();
+            // }
+            global.poolRules.PocketBall(Convert.ToInt32(n));
 
             col.gameObject.transform.position=smallBlackHouse;
 
             //Destroy(this.gameObject, 0.5F);
-            if(global.hole_balls==6){
-                Debug.Log("你赢了");
-            }
+            // if(global.hole_balls==6){
+            //     Debug.Log("你赢了");
+            // }
         }
     }
 }

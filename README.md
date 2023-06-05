@@ -22,13 +22,11 @@
 
 ![img](https://pic.imgdb.cn/item/64770bdbf024cca173ceb23b.jpg)
 
-
 ### Introduction
-
 
 ### Scenes
 
-主要为两个场景，UI场景与台球场景
+主要为两个场景，UI场景(demo)与台球场景（playground）
 
 ......
 
