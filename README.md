@@ -22,6 +22,14 @@
 
 ![img](https://pic.imgdb.cn/item/64770bdbf024cca173ceb23b.jpg)
 
+
+当用户进球时，将会高亮显示需要打的条纹球或者全色球
+
+当用户打入黑八时会判断失败或者成功，并将给出提示
+
+![](https://pic.imgdb.cn/item/647ed18c1ddac507cc79b062.jpg)
+
+
 ### Introduction
 
 ### Scenes

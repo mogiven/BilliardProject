@@ -29,14 +29,15 @@ public class PoolRules: MonoBehaviour
     //定义玩家提示信息
     private ChangePlayerNote changePlayerNote;
 
-    //定义一个变量，用来记录是否有球进过
-    private bool hasPocketed = false;
-
     //定义一个变量，用来存储粒子效果特效的预制体
     public GameObject particleEffect;
 
     //定义一个变量，用来存储特效缩放的比例
     public float effectScale = 0.15f;
+
+    //定义一个变量，存放获胜特效
+    //定义一个变量，用来存储粒子效果特效的预制体
+    public GameObject winEffect;
 
     public PoolRules(){
         Start();
@@ -46,9 +47,17 @@ public class PoolRules: MonoBehaviour
     void Start()
     {
 
+        
         particleEffect=(GameObject) Resources.Load("Heart");
 
+        //定义玩家提示信息
         changePlayerNote=new ChangePlayerNote();
+        //隐藏获胜信息
+        changePlayerNote.hideWinOrLose();
+
+        //win effect
+        winEffect=GameObject.Find("Star_A");
+        winEffect.SetActive(false);
 
         //获取PoolBallSet节点的Transform组件
         Transform poolBallSet = GameObject.Find("PoolBallSet01").transform;
@@ -184,6 +193,7 @@ public void PocketBall(int i)
         {
             gameOver = true;
             Debug.Log("You lose!");
+            changePlayerNote.displayWinOrLose(0);
         }
         else
         {
@@ -201,10 +211,14 @@ public void PocketBall(int i)
             if (win)
             {
                 Debug.Log("You win!");
+                winEffect.SetActive(true);
+                changePlayerNote.displayWinOrLose(1);
             }
             else
             {
                 Debug.Log("You lose!");
+                winEffect.SetActive(true);
+                changePlayerNote.displayWinOrLose(0);
             }
         }
     }
