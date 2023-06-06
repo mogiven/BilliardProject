@@ -41,11 +41,13 @@ public class AutoFollow : MonoBehaviour
             return;
         }
 
+        Vector3 forward = targetTansform.TransformDirection(Vector3.forward) ;
         switch (myFollowType)
         {
+            
             case FollowType.SetPosition:
-                Vector3 forward = targetTansform.TransformDirection(Vector3.forward) ;
-                this.transform.position = targetTansform.position + forward*1F +new Vector3(0,-0.5F,0);
+                
+                this.transform.position = targetTansform.position + forward *1F +new Vector3(0,-0.5F,0);
                 this.transform.rotation=Quaternion.LookRotation( forward);
                 break;
             case FollowType.Lerp:
@@ -61,7 +63,8 @@ public class AutoFollow : MonoBehaviour
                 this.transform.position = Vector3.SmoothDamp(this.transform.position,targetTansform.position, ref velocity,dampSpeed * Time.fixedDeltaTime);
                 break;
             case FollowType.RigibodyAddForce:
-                Vector3 force = targetTansform.position - transform.position;
+                //Vector3 force = targetTansform.position - transform.position;
+                Vector3 force = forward;
                 force = force.normalized;
                 force = force * forceSpeed;
                 transform.GetComponent<Rigidbody>().AddForce(force);

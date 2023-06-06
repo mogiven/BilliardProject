@@ -17,6 +17,7 @@ public class RayShooter: MonoBehaviour
         _camera = GetComponent<Camera>();//获取相机上的Camera组件
         bulletPrefab = (GameObject) Resources.Load("EmptyRotation");
         stick=_camera.transform.Find("EmptyRotation").Find("Bullet2");
+        global.is_hold=1;
     }
 
     void Update()
