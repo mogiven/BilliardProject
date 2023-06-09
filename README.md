@@ -25,15 +25,14 @@
 
 用户击球时会产生特效
 
-![](https://pic.imgdb.cn/item/647f27391ddac507cc09b8bf.jpg)
+![](https://s2.loli.net/2023/06/09/XJSthYPkrTv1BwW.jpg)
 
 
 当用户进球时，将会高亮显示需要打的条纹球或者全色球
 
 当用户打入黑八时会判断失败或者成功，并将给出提示
 
-![](https://pic.imgdb.cn/item/647ed18c1ddac507cc79b062.jpg)
-
+![](https://s2.loli.net/2023/06/09/NnDS4XlFjkucOsz.jpg)
 
 ### Introduction
 
