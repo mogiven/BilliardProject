@@ -43,13 +43,24 @@ public class RayShooter: MonoBehaviour
                 // bullet.GetComponent<Rigidbody>().velocity = ray.direction * 20;
                 // Destroy(bullet, 0.5F);
 
+                Debug.Log("点击了鼠标左键，此时is_hold="+global.is_hold);
 
                 if(global.is_hold==1){
                     //更新出杆数
                     global.stick_attacks+=1;
                     global.poolRules.UpdateStickNote(global.stick_attacks);
                     
-                    StartCoroutine(MoveStick(ray));//运行此协程
+                    //StartCoroutine(MoveStick(ray));//运行此协程
+                    StartCoroutine(MoveStick(ray.origin,hit.point));//运行此协程
+                }
+
+                if(global.is_hold==-2){
+                    //更新出杆数
+                    global.stick_attacks+=1;
+                    global.poolRules.UpdateStickNote(global.stick_attacks);
+                    
+                    //StartCoroutine(MoveStick(ray));//运行此协程
+                    StartCoroutine(MoveStickByHand(ray.origin,hit.point));//运行此协程
                 }
 
                 
@@ -70,6 +81,32 @@ public class RayShooter: MonoBehaviour
 
         Destroy(sphere);
     }
+
+    private IEnumerator MoveStick(Vector3 origin_pos, Vector3 end_pos){
+
+        global.is_hold=0;
+        //Debug.Log("协程运行开始");
+        stick.parent.position=origin_pos+new Vector3(0,-0.5F,0);
+        global.move_forward_direction=end_pos-stick.parent.position;
+        yield return new WaitForSeconds(1);//表示等待一秒再执行此函数下面的内容
+        global.is_hold=1;
+        //Debug.Log("协程运行结束");
+    }
+
+    private IEnumerator MoveStickByHand(Vector3 origin_pos, Vector3 end_pos){
+
+        global.is_hold=-1;
+        Cursor.lockState = CursorLockMode.None; //解锁鼠标，可以自由移动
+        //Debug.Log("协程运行开始");
+        stick.parent.position=origin_pos+new Vector3(0,-0.3F,0);
+        global.move_forward_direction=end_pos-stick.parent.position;
+        yield return new WaitForSeconds(3);//表示等待一秒再执行此函数下面的内容
+        global.is_hold=1;
+        Cursor.lockState = CursorLockMode.Locked;//锁定鼠标在屏幕中央
+        MovingStickByHand.GoOnHand();
+        //Debug.Log("协程运行结束");
+    }
+
 
     private IEnumerator MoveStick(Ray ray)//运行协程来响应击中
     {

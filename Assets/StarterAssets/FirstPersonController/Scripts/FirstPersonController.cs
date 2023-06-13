@@ -119,7 +119,10 @@ namespace StarterAssets
 
 		private void LateUpdate()
 		{
-			CameraRotation();
+			if(global.is_hold!=-1){
+				CameraRotation();
+			}
+			//CameraRotation();
 		}
 
 		private void GroundedCheck()
