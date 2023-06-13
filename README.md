@@ -20,19 +20,29 @@
 
 点击左键击发球杆
 
-![img](https://pic.imgdb.cn/item/64770bdbf024cca173ceb23b.jpg)
+当用户点击M键时，将切换击球模式。
 
+    有两种击球模式：直射型与手动控制型。
+
+当用户点击H键时，将唤起帮助菜单
+
+当用户点击R键时，将重设球的位置
+
+当用户点击Q键时，将退出游戏
+
+![img](https://pic.imgdb.cn/item/64770bdbf024cca173ceb23b.jpg)
 
 用户击球时会产生特效
 
 ![](https://pic.imgdb.cn/item/647f27391ddac507cc09b8bf.jpg)
-
 
 当用户进球时，将会高亮显示需要打的条纹球或者全色球
 
 当用户打入黑八时会判断失败或者成功，并将给出提示
 
 ![](https://pic.imgdb.cn/item/647ed18c1ddac507cc79b062.jpg)
+
+
 
 
 ### Introduction
