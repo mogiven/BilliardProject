@@ -20,6 +20,8 @@ public class StickCollision : MonoBehaviour
     //定义一个变量，用来存储音乐的音量
     public float musicVolume = 1f;
 
+    public float speedFactor=1f;
+
     private void Awake()
     {
         // 加载音效文件
@@ -63,6 +65,24 @@ public class StickCollision : MonoBehaviour
 
             //在0.3s后销毁特效的实例
             Destroy(effect, effectDuration);
+
+            Debug.Log("当前碰撞速度为"+global.mouseVelocity);
+            //获取球的刚体组件
+            Rigidbody ballRb = col.gameObject.GetComponent<Rigidbody>();
+            //计算球的速度方向，根据碰撞点的法线方向反射鼠标的速度向量
+            Vector3 velocityDirection = Vector3.Reflect(global.mouseVelocity, col.GetContact(0).normal);
+            //给球一个冲量，乘以一个系数来调整速度大小
+            ballRb.AddForce(velocityDirection * speedFactor, ForceMode.Impulse);
+
+            //把球的速度在Y轴方向上设为0，避免球飞起来
+            Vector3 ballVelocity = ballRb.velocity;
+            ballVelocity.y = 0;
+            ballRb.velocity = ballVelocity;
+
+
+            //给球添加一个向下的力，乘以一个系数来调整力的大小
+            // ballRb.AddForce(Vector3.down * 1f, ForceMode.Impulse);
+
 
         }
     }

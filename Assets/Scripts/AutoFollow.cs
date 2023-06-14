@@ -57,6 +57,8 @@ public class AutoFollow : MonoBehaviour
             //根据移动距离和速度，计算物体在移动方向上的位移
             float moveDistance = mouseDeltaY * mouseMoveSpeed * Time.deltaTime;
 
+            global.mouseVelocity=mouseDeltaY * mouseMoveSpeed * global.move_forward_direction;
+
             //Debug.Log("移动方向为"+global.move_forward_direction+"移动距离为"+moveDistance+"鼠标当前在"+currentMousePosition.y);
 
             //更新物体的位置，沿着移动方向移动一定的位移

@@ -14,6 +14,9 @@ public class global : MonoBehaviour
     //出杆数
     public static int stick_attacks= 0;
 
+    //鼠标的移动速度
+    public static Vector3 mouseVelocity;
+
     //定义静态规则类
     public static PoolRules poolRules =new PoolRules();
 
