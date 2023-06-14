@@ -32,12 +32,29 @@ public class ChangePlayerNote
     // Start is called before the first frame update
     void Start()
     {
+        //找到所有的Text组件，包括未激活的
+        Text[] allTexts = Resources.FindObjectsOfTypeAll<Text>();
+
         Note=GameObject.Find("PlayerTextNote");
         text= Note.GetComponent<Text>();
         StickNote=GameObject.Find("StickAttackNote");
         stickNoteText=StickNote.GetComponent<Text>();
         GameResult=GameObject.Find("GameResultText");
-        GameResultText=GameResult.GetComponent<Text>();
+        if(GameResult==null){
+            //遍历数组，找到名字为GameResultText的Text组件
+            foreach (Text text in allTexts)
+            {
+                //如果Text组件的名字是GameResultText
+                if (text.name == "GameResultText")
+                {
+                    GameResultText=text;
+                    GameResult = text.transform.parent.gameObject;
+                }
+            }
+        }else{
+            GameResultText=GameResult.GetComponent<Text>();
+        }
+        
         //获取它的变换组件
         Transform gameResultTransform = GameResult.transform;
         //获取它的父节点
@@ -49,6 +66,9 @@ public class ChangePlayerNote
 
 
     public void UpdateStickNote(int number){
+
+        //Debug.Log("stickNoteText==NULL?"+stickNoteText==null);
+
         stickNoteText.text="当前击打杆数：<color=green>"+number+"</color>";
     }
 
@@ -74,9 +94,9 @@ public class ChangePlayerNote
     public void displayWinOrLose(int isWin){
         GameResultFather.SetActive(true);
         if(isWin==1){
-            GameResultText.text="<color=blue>You WIN !</color>";
+            GameResultText.text="<color=blue>You WIN !</color>\n<color=green>press R to restart!</color>";
         }else{
-            GameResultText.text="<color=red>You LOSE !</color>";
+            GameResultText.text="<color=red>You LOSE !</color>\n<color=green>press R to restart!</color>";
         }
 
 

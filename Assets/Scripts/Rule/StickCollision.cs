@@ -66,7 +66,7 @@ public class StickCollision : MonoBehaviour
             //在0.3s后销毁特效的实例
             Destroy(effect, effectDuration);
 
-            Debug.Log("当前碰撞速度为"+global.mouseVelocity);
+            //Debug.Log("当前碰撞速度为"+global.mouseVelocity);
             //获取球的刚体组件
             Rigidbody ballRb = col.gameObject.GetComponent<Rigidbody>();
             //计算球的速度方向，根据碰撞点的法线方向反射鼠标的速度向量

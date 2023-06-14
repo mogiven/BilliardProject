@@ -17,7 +17,7 @@ public class RayShooter: MonoBehaviour
         _camera = GetComponent<Camera>();//获取相机上的Camera组件
         bulletPrefab = (GameObject) Resources.Load("EmptyRotation");
         stick=_camera.transform.Find("EmptyRotation").Find("Bullet2");
-        global.is_hold=1;
+        global.is_hold=-2;
     }
 
     void Update()
@@ -31,24 +31,15 @@ public class RayShooter: MonoBehaviour
             if(Physics.Raycast(ray,out hit))//在此方法中寻找射线信息，并且赋值给hit变量
             {
                 //获取射线与射击到物体的交叉位置，并且进行一些操作
-                Debug.Log("Hit "+hit.point);
-                // 在场景视图中绘制射线  
-                //Debug.DrawLine(ray.origin, hit.point, Color.red);
-                //StartCoroutine(SphereIndicator(hit.point));//运行此协程
+                //Debug.Log("Hit "+hit.point);
 
-
-                //ray.origin = Camera.main.transform.position
-                //发射炮弹，暂时注释
-                // GameObject bullet = Instantiate(bulletPrefab, ray.origin, Quaternion.identity); // 通过预设体创建炮弹
-                // bullet.GetComponent<Rigidbody>().velocity = ray.direction * 20;
-                // Destroy(bullet, 0.5F);
-
-                Debug.Log("点击了鼠标左键，此时is_hold="+global.is_hold);
+                //Debug.Log("点击了鼠标左键，此时is_hold="+global.is_hold);
 
                 if(global.is_hold==1){
                     //更新出杆数
-                    global.stick_attacks+=1;
-                    global.poolRules.UpdateStickNote(global.stick_attacks);
+                    //global.stick_attacks+=1;
+                    global.GlobalHoleBalls=global.GlobalHoleBalls+1;
+                    global.poolRules.UpdateStickNote(global.GlobalHoleBalls);
                     
                     //StartCoroutine(MoveStick(ray));//运行此协程
                     StartCoroutine(MoveStick(ray.origin,hit.point));//运行此协程

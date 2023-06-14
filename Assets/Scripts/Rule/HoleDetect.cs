@@ -34,7 +34,11 @@ public class HoleDetect : MonoBehaviour
             // }
             global.poolRules.PocketBall(Convert.ToInt32(n));
 
-            col.gameObject.transform.position=smallBlackHouse;
+
+            if(col.gameObject.name!="b_W_M"){
+                col.gameObject.transform.position=smallBlackHouse;
+            }
+            
 
             //Destroy(this.gameObject, 0.5F);
             // if(global.hole_balls==6){

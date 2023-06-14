@@ -6,9 +6,9 @@ public class ResetBall : MonoBehaviour
 {
 
     //声明一个列表来存储球的游戏对象
-    private List<GameObject> balls = new List<GameObject>();
+    private static List<GameObject> balls = new List<GameObject>();
     //声明一个列表来存储球的初始位置
-    private List<Vector3> positions = new List<Vector3>();
+    public static List<Vector3> positions = new List<Vector3>();
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +35,28 @@ public class ResetBall : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.R)) { 
             //调用ResetBalls函数
             ResetBalls();
+            //重设规则
+            ResetRules();
+            global.poolRules.ResetAll();
         }
+    }
+
+    void ResetRules(){
+        global.GlobalGoalsNum=0;
+        global.GlobalHoleBalls=0;
+    }
+
+    public static void ResetWhiteBall(){
+        //获取第i个球的游戏对象
+        GameObject ball = balls[15];
+        //获取第i个球的初始位置
+        Vector3 position = positions[15];
+        //将第i个球的位置设置为初始位置
+        ball.transform.position = position;
+        //将第i个球的速度设置为零
+        ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        //将第i个球的角速度设置为零
+        ball.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
     }
 
     void ResetBalls()
@@ -48,6 +69,8 @@ public class ResetBall : MonoBehaviour
 
         //获取第i个球的初始位置
         Vector3 position = positions[i];
+
+        Debug.Log("球的位置是"+position);
 
         //将第i个球的位置设置为初始位置
         ball.transform.position = position;

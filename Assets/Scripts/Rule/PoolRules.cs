@@ -65,11 +65,15 @@ public class PoolRules: MonoBehaviour
         balls= new GameObject[16];
         positions=new Vector3[16];
 
+        Debug.Log(poolBallSet.childCount);
+
         //遍历PoolBallSet节点的子节点，即所有的球
         for(int i = 0; i < poolBallSet.childCount; i++)
         {
             //获取第i个子节点的游戏对象
             GameObject ball = poolBallSet.GetChild(i).gameObject;
+
+            //Debug.Log("第"+i+"个球时"+ball.name+"坐标为"+ball.transform.position);
 
             //将球的游戏对象添加到balls列表中
             balls[i]=(ball);
@@ -87,7 +91,7 @@ public class PoolRules: MonoBehaviour
 
         }
 
-        
+        Debug.Log("白球的位置是"+positions[15]+" ");
 
         pocketed = new bool[16];
         for (int i = 0; i < 16; i++)
@@ -121,12 +125,16 @@ public void PocketBall(int i)
     //     }
     // }            
 
-    Debug.Log("进球第"+i+"个球");
+    Debug.Log("进球第"+i+"个球,累计进球"+global.hole_balls);
 
     //如果是白球，则重置白球的位置，并切换玩家
     if (i == 0)
     {
-        balls[15].transform.position = positions[15];
+        Debug.Log("重置白球的位置"+"另外一边记录的位置是"+ResetBall.positions[15]);
+        //balls[15].transform.position = positions[15];
+        ResetBall.ResetWhiteBall();
+        //balls[15].transform.position =new Vector3(7.03f, 1.22f, -0.02f);
+        //ResetBall.positions[15];
         SwitchPlayer();
     }
     else
@@ -144,46 +152,7 @@ public void PocketBall(int i)
     }
 }
 
-    //在每一次击球后，检查所有球的位置，并更新进球状态和玩家类型
-    void CheckBalls()
-    {
-        //遍历所有球
-        for (int i = 0; i < 16; i++)
-        {
-            //如果球已经进过，则跳过
-            if (pocketed[i]) continue;
 
-            //获取球的位置
-            Vector3 position = balls[i].transform.position;
-
-            //判断球是否进入了袋子，这里可以根据你的具体逻辑来修改
-            if (position.y < -1f)
-            {
-                //更新进球状态
-                pocketed[i] = true;
-
-                //如果是白球，则重置白球的位置，并切换玩家
-                if (i == 0)
-                {
-                    balls[15].transform.position = positions[15];
-                    SwitchPlayer();
-                }
-                else
-                {
-                    //如果是黑八，则判断是否获胜或失败
-                    if (i == 8)
-                    {
-                        CheckBlackEight();
-                    }
-                    else
-                    {
-                        //如果是其他彩球，则判断是否符合玩家类型
-                        CheckPlayerType(i);
-                    }
-                }
-            }
-        }
-    }
 
     //判断黑八是否获胜或失败
     void CheckBlackEight()
@@ -210,17 +179,37 @@ public void PocketBall(int i)
             gameOver = true;
             if (win)
             {
-                Debug.Log("You win!");
-                winEffect.SetActive(true);
-                changePlayerNote.displayWinOrLose(1);
+                WinCoroutine(1);
+                
             }
             else
             {
-                Debug.Log("You lose!");
-                winEffect.SetActive(true);
-                changePlayerNote.displayWinOrLose(0);
+                WinCoroutine(0);
             }
         }
+    }
+
+    void WinCoroutine(int isWin) {
+         // 在这里执行一些操作
+
+         if (isWin==1){
+            Debug.Log("You win!");
+            changePlayerNote.displayWinOrLose(1);
+         }else{
+            Debug.Log("You lose!");
+            changePlayerNote.displayWinOrLose(0);
+         }
+
+         winEffect.SetActive(true);
+
+        // yield return new WaitForSeconds(5.0f); 
+
+        // winEffect.SetActive(false);
+        // changePlayerNote.hideWinOrLose();
+
+          // 等待一秒 
+          // 在这里执行后面的内容 
+
     }
 
 
@@ -230,22 +219,19 @@ public void PocketBall(int i)
         //如果玩家类型为无效，则根据彩球的奇偶性确定玩家类型，并继续击球
         if (playerType == 0)
         {
-            
             playerType = i / 8 + 1;
             SwitchPlayer(playerType);
-
-            canContinue = true;
+            global.GlobalGoalsNum=global.GlobalGoalsNum+1;
         }
         else
         {
             //如果玩家类型为有效，则判断彩球是否与玩家类型相同，如果相同，则继续击球，否则切换玩家
             if (i / 8 + 1 == playerType)
             {
-                canContinue = true;
+                global.GlobalGoalsNum=global.GlobalGoalsNum+1;
             }
             else
             {
-                canContinue = false;
                 SwitchPlayer();
             }
         }
@@ -294,7 +280,29 @@ public void PocketBall(int i)
         changePlayerNote.UpdateStickNote(number);
     }
 
+    //定义一个方法，重新设置所有东西
+    public void ResetAll(){
+        //遍历所有球
+        for (int i = 0; i < 16; i++){
+            pocketed[i]=false;
 
+            //取消心跳特效
+            //获取球的子节点，假设第一个子节点就是Heart特效节点
+            Transform child = balls[i].transform.GetChild(0);
+            //获取子节点对应的GameObject
+            GameObject heart = child.gameObject;
+            heart.SetActive(false);
+
+            playerType=0;
+            changePlayerNote.UpdateText(playerType);
+
+            winEffect.SetActive(false);
+            changePlayerNote.hideWinOrLose();
+
+            gameOver=false;
+
+        }
+    }
 
 //定义一个方法，用来根据玩家类型在对应的球的位置生成粒子效果特效
 void ShowParticleEffects(int playerType)
