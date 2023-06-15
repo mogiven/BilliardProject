@@ -11,12 +11,12 @@ namespace SlimUI.ModernMenu{
         }
 
         public void Clean1(){
-            Application.OpenURL("http://u3d.as/1hTi");
+            Application.OpenURL("https://www.bilibili.com/video/BV12X4y1w7Kv/");
         }
 
 
         public void Essence(){
-            Application.OpenURL("http://u3d.as/1t11");
+            Application.OpenURL("http://www.cbsa.org.cn/#/");
         }
     }
 }
