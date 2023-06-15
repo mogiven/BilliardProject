@@ -13,7 +13,7 @@ public class QuitGame : MonoBehaviour
             Debug.Log("退出游戏！");
 
             //设置isPlaying属性为false，表示停止游戏
-            EditorApplication.isPlaying = false;
+            //EditorApplication.isPlaying = false;
 
             //调用Quit方法来退出游戏
             Application.Quit();

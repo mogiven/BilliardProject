@@ -47,13 +47,40 @@ And there will be a TV playing background music and displaying the current score
 
 ![](https://pic.imgdb.cn/item/648aa50a1ddac507cc048487.jpg)
 
-## Scenes
+## Structure && Modules
+
+#### structures
 
 There are mainly two scenes, UI scene (demo) and billiard scene (playground)
 
 The UI scene is the start interface.
 
 The billiard scene is the main playing scene.
+
+the structure of the game is:
+
+In Assets Folder:
+
+- Resources
+  - This directory is to place some necessary resources (with the package body and need to be loaded dynamically).Such as pictures, entities, materials, etc.
+- Scripts
+  - Scripts required for various games to run
+- Others
+  - Resource packs on the network, including various resources such as UI
+
+#### modules
+
+The program consists of the following mainly modules:
+
+* A global script that defines three static variables: hole_balls, goalsNum and playerType, which represent the total number of balls that have been hit into the holes, the score of the user and the type of the user (solid or striped). The script also defines three delegates and three events to notify other scripts when these variables change.
+* A text mesh script that subscribes to the global events and updates the text on the screen to show the current status of the game, such as the score, the type and the remaining balls.
+* A cue script that handles the input from the mouse and keyboard, and controls the movement and rotation of the cue. The script also implements two functions: zooming in the view when holding down the right mouse button, and entering the hitting mode when clicking the left mouse button. In the hitting mode, the user can adjust the force and angle of hitting by moving the mouse up and down.
+* A ball script that applies physics to each ball on the table, and detects when a ball goes into a hole. The script also updates the global variables and plays sound effects and special effects accordingly.
+* A TV script that displays the current score and the number of remaining balls on a TV screen in the room.
+* A help script that shows a help interface when pressing the H key, which contains the rules and instructions of the game.
+* A reset script that resets all positions of billiards to their initial values and restarts the game when pressing the R key.
+* A rule script that defines the static rules of the game, such as the order of hitting balls, the penalty for fouls, the conditions for winning or losing, etc. The script also checks the game state and triggers the corresponding events and effects.
+* A bounce script that enhances the physical effects of the game by applying a force to the balls when they hit the edges of the table, making them bounce more realistically.
 
 ## Implemented Requirements
 
