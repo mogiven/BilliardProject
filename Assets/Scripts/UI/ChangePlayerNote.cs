@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ChangePlayerNote
+public class ChangePlayerNote: MonoBehaviour
 {
 
     //获取玩家状态提示的文本
@@ -23,11 +23,6 @@ public class ChangePlayerNote
     private GameObject GameResult;
     Text GameResultText ;
 
-    
-
-    public ChangePlayerNote(){
-        Start();
-    }
 
     // Start is called before the first frame update
     void Start()
@@ -62,10 +57,30 @@ public class ChangePlayerNote
         //获取父节点对应的GameObject
         GameResultFather = GameResultFatherTransform.gameObject;
 
+
+        //添加委托
+        global.PlayerTypeChanged+=UpdateText;
+        global.HoleBallsChanged += UpdateStickNote;
+        global.WinOrLoseChanged+=displayWinOrLose;
+
+
+        global.GlobalWinOrLose=0;
+        hideWinOrLose();
+
+    }
+
+    //在OnDestroy方法中，取消订阅global.hole_balls的变化事件
+    void OnDestroy()
+    {
+        
+        global.PlayerTypeChanged-=UpdateText;
+        global.HoleBallsChanged -= UpdateStickNote;
+        global.WinOrLoseChanged-=displayWinOrLose;
     }
 
 
-    public void UpdateStickNote(int number){
+
+    public void UpdateStickNote(int old_value,int number){
 
         //Debug.Log("stickNoteText==NULL?"+stickNoteText==null);
 
@@ -73,7 +88,7 @@ public class ChangePlayerNote
     }
 
     //定义一个方法，用来根据玩家类型改变Text的文字
-    public void UpdateText(int playerType)
+    public void UpdateText(int old_value,int playerType)
     {
         //根据玩家类型的不同，给Text赋不同的值，这里可以根据你的具体需求来修改
         switch (playerType)
@@ -91,12 +106,14 @@ public class ChangePlayerNote
     }
 
     //定义一个方法，用来显示游戏成功或者失败
-    public void displayWinOrLose(int isWin){
+    public void displayWinOrLose(int old_value,int isWin){
         GameResultFather.SetActive(true);
         if(isWin==1){
             GameResultText.text="<color=blue>You WIN !</color>\n<color=green>press R to restart!</color>";
-        }else{
+        }else if(isWin==2){
             GameResultText.text="<color=red>You LOSE !</color>\n<color=green>press R to restart!</color>";
+        }else{
+            hideWinOrLose();
         }
 
 

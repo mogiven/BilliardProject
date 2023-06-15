@@ -39,7 +39,7 @@ public class RayShooter: MonoBehaviour
                     //更新出杆数
                     //global.stick_attacks+=1;
                     global.GlobalHoleBalls=global.GlobalHoleBalls+1;
-                    global.poolRules.UpdateStickNote(global.GlobalHoleBalls);
+                    //global.poolRules.UpdateStickNote(global.GlobalHoleBalls);
                     
                     //StartCoroutine(MoveStick(ray));//运行此协程
                     StartCoroutine(MoveStick(ray.origin,hit.point));//运行此协程
@@ -47,8 +47,9 @@ public class RayShooter: MonoBehaviour
 
                 if(global.is_hold==-2){
                     //更新出杆数
-                    global.stick_attacks+=1;
-                    global.poolRules.UpdateStickNote(global.stick_attacks);
+                    //global.stick_attacks+=1;
+                    global.GlobalHoleBalls=global.GlobalHoleBalls+1;
+                    //global.poolRules.UpdateStickNote(global.stick_attacks);
                     
                     //StartCoroutine(MoveStick(ray));//运行此协程
                     StartCoroutine(MoveStickByHand(ray.origin,hit.point));//运行此协程
