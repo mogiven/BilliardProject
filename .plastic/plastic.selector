@@ -1,4 +1,0 @@
-repository "BilliardProject@mogiven@cloud.cn"
-  path "/"
-    br "/main"
-    co "/main"

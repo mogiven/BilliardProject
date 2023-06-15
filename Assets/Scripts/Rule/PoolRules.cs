@@ -26,9 +26,6 @@ public class PoolRules: MonoBehaviour
     //定义一个变量，用来表示游戏是否结束
     private bool gameOver;
 
-    //定义玩家提示信息
-    private ChangePlayerNote changePlayerNote;
-
     //定义一个变量，用来存储粒子效果特效的预制体
     public GameObject particleEffect;
 
@@ -50,10 +47,9 @@ public class PoolRules: MonoBehaviour
         
         particleEffect=(GameObject) Resources.Load("Heart");
 
-        //定义玩家提示信息
-        changePlayerNote=new ChangePlayerNote();
+
         //隐藏获胜信息
-        changePlayerNote.hideWinOrLose();
+        global.GlobalWinOrLose=0;
 
         //win effect
         winEffect=GameObject.Find("Star_A");
@@ -162,7 +158,7 @@ public void PocketBall(int i)
         {
             gameOver = true;
             Debug.Log("You lose!");
-            changePlayerNote.displayWinOrLose(0);
+            global.GlobalWinOrLose=2;
         }
         else
         {
@@ -194,10 +190,12 @@ public void PocketBall(int i)
 
          if (isWin==1){
             Debug.Log("You win!");
-            changePlayerNote.displayWinOrLose(1);
+            //changePlayerNote.displayWinOrLose(1);
+            global.GlobalWinOrLose=1;
          }else{
             Debug.Log("You lose!");
-            changePlayerNote.displayWinOrLose(0);
+            //changePlayerNote.displayWinOrLose(0);
+            global.GlobalWinOrLose=2;
          }
 
          winEffect.SetActive(true);
@@ -256,7 +254,8 @@ public void PocketBall(int i)
 
         Debug.Log("CHANGE PLAYER NOTE");
 
-        changePlayerNote.UpdateText(playerType);
+        global.GlobalPlayerType=playerType;
+        //changePlayerNote.UpdateText(playerType);
 
     }
 
@@ -265,7 +264,9 @@ public void PocketBall(int i)
     {
         playerType = n;
         Debug.Log("CHANGE PLAYER NOTE");
-        changePlayerNote.UpdateText(playerType);
+
+        global.GlobalPlayerType=playerType;
+        //changePlayerNote.UpdateText(playerType);
 
         ShowParticleEffects(playerType);
 
@@ -277,7 +278,8 @@ public void PocketBall(int i)
     }
 
     public void UpdateStickNote(int number){
-        changePlayerNote.UpdateStickNote(number);
+        global.GlobalPlayerType=playerType;
+        //changePlayerNote.UpdateStickNote(number);
     }
 
     //定义一个方法，重新设置所有东西
@@ -294,10 +296,12 @@ public void PocketBall(int i)
             heart.SetActive(false);
 
             playerType=0;
-            changePlayerNote.UpdateText(playerType);
+            global.GlobalPlayerType=playerType;
+            //changePlayerNote.UpdateText(playerType);
 
             winEffect.SetActive(false);
-            changePlayerNote.hideWinOrLose();
+            //changePlayerNote.hideWinOrLose();
+            global.GlobalWinOrLose=0;
 
             gameOver=false;
 
