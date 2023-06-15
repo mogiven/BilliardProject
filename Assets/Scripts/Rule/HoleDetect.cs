@@ -16,7 +16,7 @@ public class HoleDetect : MonoBehaviour
             //销毁本脚本所属游戏对象
             global.hole_balls++;
             
-
+            
 
             string name = col.gameObject.name; //获取碰撞体的名称 
             string[] parts = name.Split('_'); //按照下划线分割名称 
