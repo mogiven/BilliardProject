@@ -17,6 +17,8 @@ public class StickCollision : MonoBehaviour
     //定义一个变量，用来存储音乐的剪辑
     public AudioClip musicClip;
 
+    List<AudioClip> sounds;
+
     //定义一个变量，用来存储音乐的音量
     public float musicVolume = 1f;
 
@@ -35,14 +37,51 @@ public class StickCollision : MonoBehaviour
     {
         effectPrefab = (GameObject) Resources.Load("Explosion_A");
 
+        sounds = new List<AudioClip>(); //定义列表
+
+        AudioClip tempSound1=Resources.Load<AudioClip>("Explosion 1");
+        AudioClip tempSound2=Resources.Load<AudioClip>("Music/DM-CGS-02");
+        AudioClip tempSound3=Resources.Load<AudioClip>("Music/DM-CGS-03");
+        AudioClip tempSound4=Resources.Load<AudioClip>("Music/DM-CGS-07");
+        AudioClip tempSound5=Resources.Load<AudioClip>("Music/DM-CGS-09");
+        AudioClip tempSound6=Resources.Load<AudioClip>("Music/DM-CGS-11");
+        AudioClip tempSound7=Resources.Load<AudioClip>("Music/DM-CGS-12");
+        AudioClip tempSound8=Resources.Load<AudioClip>("Music/DM-CGS-15");
+        AudioClip tempSound9=Resources.Load<AudioClip>("Music/DM-CGS-17");
+        AudioClip tempSound10=Resources.Load<AudioClip>("Music/DM-CGS-18");
+        AudioClip tempSound11=Resources.Load<AudioClip>("Music/DM-CGS-22");
+        AudioClip tempSound12=Resources.Load<AudioClip>("Music/DM-CGS-23");
+        AudioClip tempSound13=Resources.Load<AudioClip>("Music/DM-CGS-26");
+        AudioClip tempSound14=Resources.Load<AudioClip>("Music/DM-CGS-27");
+
+        sounds.Add(tempSound1);
+        sounds.Add(tempSound2);
+        sounds.Add(tempSound3);
+        sounds.Add(tempSound4);
+        sounds.Add(tempSound5);
+        sounds.Add(tempSound6);
+        sounds.Add(tempSound7);
+        sounds.Add(tempSound8);
+        sounds.Add(tempSound9);
+        sounds.Add(tempSound10);
+        sounds.Add(tempSound11);
+        sounds.Add(tempSound12);
+        sounds.Add(tempSound13);
+        sounds.Add(tempSound14);
+
+
         // 设置音量为0.5
         audioSource.volume = musicVolume;
 
     }
 
     void PlayMusic(){
+
+        int index = Random.Range(0, sounds.Count); //生成一个随机的索引，范围是0到列表的长度
+        AudioClip clip = sounds[index]; //用索引访问列表中的音效
+
         // 播放音效，持续时间为0.3秒
-        audioSource.PlayOneShot(musicClip, 0.6f);
+        audioSource.PlayOneShot(clip, 0.6f);
     }
 
     void OnCollisionEnter(Collision col)

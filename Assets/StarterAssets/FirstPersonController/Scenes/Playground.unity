@@ -210,6 +210,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 2
+--- !u!114 &13437953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 13437944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5820de3e18694a84a9f1f44ec78a51df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  friction: 0.1
+  frictionAcc: 1
 --- !u!1001 &49573478
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1052,6 +1066,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 2
+--- !u!114 &260507540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 260507531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5820de3e18694a84a9f1f44ec78a51df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  friction: 0.1
+  frictionAcc: 1
 --- !u!1001 &269417833
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2293,6 +2321,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 2
+--- !u!114 &494541882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 494541873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5820de3e18694a84a9f1f44ec78a51df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  friction: 0.1
+  frictionAcc: 1
 --- !u!1 &494702502 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 175986, guid: 523fba6d8c8662a4383a6c74fc0a9d45, type: 3}
@@ -2319,6 +2361,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 2
+--- !u!114 &494702511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 494702502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5820de3e18694a84a9f1f44ec78a51df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  friction: 0.1
+  frictionAcc: 1
 --- !u!1 &496986161
 GameObject:
   m_ObjectHideFlags: 0
@@ -2680,6 +2736,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 2
+--- !u!114 &551163331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 551163322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5820de3e18694a84a9f1f44ec78a51df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  friction: 0.1
+  frictionAcc: 1
 --- !u!1 &569180096
 GameObject:
   m_ObjectHideFlags: 0
@@ -3145,6 +3215,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 2
+--- !u!114 &712436563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712436554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5820de3e18694a84a9f1f44ec78a51df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  friction: 0.1
+  frictionAcc: 1
 --- !u!1001 &718166135
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3233,6 +3317,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 2
+--- !u!114 &728679510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 728679501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5820de3e18694a84a9f1f44ec78a51df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  friction: 0.1
+  frictionAcc: 1
 --- !u!1001 &746329221
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3328,6 +3426,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 2
+--- !u!114 &762448335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762448328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5820de3e18694a84a9f1f44ec78a51df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  friction: 0.1
+  frictionAcc: 10
 --- !u!1001 &774729018
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3620,6 +3732,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 2
+--- !u!114 &847668227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 847668218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5820de3e18694a84a9f1f44ec78a51df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  friction: 0.1
+  frictionAcc: 1
 --- !u!1 &863322216
 GameObject:
   m_ObjectHideFlags: 0
@@ -4149,6 +4275,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 2
+--- !u!114 &882500811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882500802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5820de3e18694a84a9f1f44ec78a51df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  friction: 0.1
+  frictionAcc: 1
 --- !u!1 &884447170
 GameObject:
   m_ObjectHideFlags: 0
@@ -5857,6 +5997,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 2
+--- !u!114 &1210075291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1210075282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5820de3e18694a84a9f1f44ec78a51df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  friction: 0.1
+  frictionAcc: 1
 --- !u!1001 &1211932557
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6552,6 +6706,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 2
+--- !u!114 &1353357855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353357846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5820de3e18694a84a9f1f44ec78a51df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  friction: 0.1
+  frictionAcc: 1
 --- !u!1001 &1432133130
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6668,6 +6836,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 2
+--- !u!114 &1503830176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1503830167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5820de3e18694a84a9f1f44ec78a51df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  friction: 0.1
+  frictionAcc: 1
 --- !u!1 &1531682407
 GameObject:
   m_ObjectHideFlags: 0
@@ -7016,6 +7198,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 2
+--- !u!114 &1566370569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1566370560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5820de3e18694a84a9f1f44ec78a51df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  friction: 0.1
+  frictionAcc: 1
 --- !u!1001 &1607040339
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7616,6 +7812,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 2
+--- !u!114 &1776813133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1776813124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5820de3e18694a84a9f1f44ec78a51df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  friction: 0.1
+  frictionAcc: 1
 --- !u!1 &1792402186
 GameObject:
   m_ObjectHideFlags: 0
@@ -8132,6 +8342,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 2
+--- !u!114 &1918798057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1918798048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5820de3e18694a84a9f1f44ec78a51df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  friction: 0.1
+  frictionAcc: 1
 --- !u!1 &1929022086
 GameObject:
   m_ObjectHideFlags: 0
